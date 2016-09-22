@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{margin: 0;padding: 0; border-radius: 50% 50%;}
+        #biggest{width: 500px; height: 500px; background: #000; margin:0 auto;}
+        .change{width: 50%; height:50%; float:left; background:rgb(0,0,0); }
+    </style>
+</head>
+<body>
+<div id="biggest">
+
+</div>
+<script>
+    var bigDiv=document.getElementById('biggest');
+    function col(){
+        var a=Math.floor(Math.random()*257);
+        var b=Math.floor(Math.random()*257);
+        var c=Math.floor(Math.random()*257);
+        return "rgb("+a+","+b+","+c+")";
+    }
+    function fun(obj) {
+        for(var i=0;i<4;i++) {
+            alert(2);
+            var div=document.createElement('div');
+            div.className = 'change';
+            div.style.background=col();
+            div.onclick= function () {
+                fun(this);
+            };
+            obj.appendChild(div);
+            obj.onclick=function(){return};
+            obj.style.background='none';
+        }
+    }
+    bigDiv.onclick=function(){
+        alert(1);
+        fun(this);
+    };
+</script>
+
+</body>
+</html>
